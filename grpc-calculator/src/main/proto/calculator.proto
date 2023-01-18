@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.grpc.lucas.domain";
+option java_outer_classname = "CalculatorProto";
+
+service calculator {
+  rpc sum(NumbersToOperate) returns (APIResponse);
+  rpc difference(NumbersToOperate) returns (APIResponse);
+  rpc multiplication(NumbersToOperate) returns (APIResponse);
+  rpc division(NumbersToOperate) returns (APIResponse);
+}
+
+message NumbersToOperate {
+  int32 firstNumber = 1;
+  int32 secondNumber = 2;
+}
+
+message APIResponse {
+  string message = 1;
+  int32 result = 2;
+}
